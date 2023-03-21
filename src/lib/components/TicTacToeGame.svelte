@@ -81,13 +81,13 @@
 
     <RulePanel bind:m bind:n bind:k/>
 
-    <TurnIndicator allPlayers={players} bind:currentPlayer/>
+    <TurnIndicator allPlayers={players} currentPlayer={currentPlayer}/>
 
     <Board
         bind:this={board}
         width={m}
         height={n}
-        bind:currentPlayer
+        currentPlayer={currentPlayer}
         on:squareclicked={onSquareMarked}
         />
 
