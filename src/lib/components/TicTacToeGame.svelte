@@ -78,22 +78,21 @@
 </script>
 
 <div style="display: grid">
+
     <RulePanel bind:m bind:n bind:k/>
+
     <TurnIndicator allPlayers={players} bind:currentPlayer/>
 
-{#key m}
-    {#key n}
-        <Board
-            bind:this={board}
-            bind:width={m}
-            bind:height={n}
-            bind:currentPlayer
-            on:squareclicked={onSquareMarked}
-            />
-            {#if isGameOver}
-                <Button on:click={() => reset()}>Reset</Button>
-            {/if}
-    {/key}
-{/key}
+    <Board
+        bind:this={board}
+        width={m}
+        height={n}
+        bind:currentPlayer
+        on:squareclicked={onSquareMarked}
+        />
+
+{#if isGameOver}
+    <Button on:click={() => reset()}>Reset</Button>
+{/if}
 
 </div>

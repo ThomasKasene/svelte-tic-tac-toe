@@ -8,8 +8,17 @@
     export let width = 3;
     export let currentPlayer = null;
 
-    let board = [... new Array(height)].map(row => new Array(width).fill(null));
-    let unmarkedSquaresCount = height * width;
+    let board;
+    let totalSquareCount;
+    let unmarkedSquaresCount;
+
+    $: resize(height, width);
+
+    function resize(newHeight, newWidth) {
+        board = [... new Array(newHeight)].map(row => new Array(newWidth).fill(null));
+        totalSquareCount = newHeight * newWidth;
+        unmarkedSquaresCount = totalSquareCount;
+    }
 
     export function getUnmarkedSquareCount() {
         return unmarkedSquaresCount;
@@ -114,6 +123,7 @@
     }
 </script>
 
+{#key totalSquareCount}
 <div class="boardWrapper">
     {#each board as row, rowIndex}
         {#each row as cell, cellIndex}
@@ -126,6 +136,7 @@
         {/each}
     {/each}
 </div>
+{/key}
 
 <style>
     .boardWrapper {
