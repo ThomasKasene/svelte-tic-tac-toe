@@ -2,7 +2,8 @@
     import Board from './Board.svelte';
     import Button from './Button.svelte';
     import TurnIndicator from './TurnIndicator.svelte';
-    import RulePanel from './RulePanel.svelte';
+    import ExpandingPanel from './ExpandingPanel.svelte';
+    import NumericSliderRule from './NumericSliderRule.svelte';
 
     export let m = 3;
     export let n = 3;
@@ -79,9 +80,13 @@
 
 <div style="display: grid">
 
-    <RulePanel bind:m bind:n bind:k/>
-
     <TurnIndicator allPlayers={players} currentPlayer={currentPlayer}/>
+
+    <ExpandingPanel title="Game Rules" style="display: grid">
+        <NumericSliderRule bind:value={m} min="3" max="9" label="The horizontal size of the board."/>
+        <NumericSliderRule bind:value={n} min="3" max="9" label="The vertical size of the board."/>
+        <NumericSliderRule bind:value={k} min="3" max="5" label="How many in a row one needs to win."/>
+    </ExpandingPanel>
 
     <Board
         bind:this={board}
