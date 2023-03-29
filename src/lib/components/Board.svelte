@@ -9,15 +9,15 @@
     export let currentPlayer = null;
 
     let board;
-    let totalSquareCount;
+    let boardSizeKey;
     let unmarkedSquaresCount;
 
     $: resize(height, width);
 
     function resize(newHeight, newWidth) {
+        boardSizeKey = `h${newHeight}w${newWidth}`;
+        unmarkedSquaresCount = newHeight * newWidth;
         board = [... new Array(newHeight)].map(row => new Array(newWidth).fill(null));
-        totalSquareCount = newHeight * newWidth;
-        unmarkedSquaresCount = totalSquareCount;
     }
 
     export function getUnmarkedSquareCount() {
@@ -123,13 +123,13 @@
     }
 </script>
 
-{#key totalSquareCount}
+{#key boardSizeKey}
 <div class="boardWrapper">
     {#each board as row, rowIndex}
         {#each row as cell, cellIndex}
             <div style:grid-row-start={rowIndex + 1} style:grid-column-start={cellIndex + 1}>
                 <Square
-                        bind:this={board[rowIndex][cellIndex]}
+                        bind:this={cell}
                         on:click={() => markSquare(rowIndex, cellIndex)}
                         --bg-color-hover={currentPlayer != null ? currentPlayer.backgroundColorHover : ''}/>
             </div>

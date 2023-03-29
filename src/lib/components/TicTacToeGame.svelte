@@ -82,7 +82,7 @@
 
     <TurnIndicator allPlayers={players} currentPlayer={currentPlayer}/>
 
-    <ExpandingPanel title="Game Rules" style="display: grid">
+    <ExpandingPanel title="Game Rules">
         <NumericSliderRule bind:value={m} min="3" max="9" label="The horizontal size of the board."/>
         <NumericSliderRule bind:value={n} min="3" max="9" label="The vertical size of the board."/>
         <NumericSliderRule bind:value={k} min="3" max="5" label="How many in a row one needs to win."/>
