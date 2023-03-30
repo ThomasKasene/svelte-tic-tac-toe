@@ -1,9 +1,9 @@
 <script>
-    import Board from './Board.svelte';
-    import Button from './Button.svelte';
-    import TurnIndicator from './TurnIndicator.svelte';
-    import ExpandingPanel from './ExpandingPanel.svelte';
-    import NumericSliderRule from './NumericSliderRule.svelte';
+    import Board from '$lib/components/games/Board.svelte';
+    import Button from '$lib/components/ui/Button.svelte';
+    import TurnIndicator from '$lib/components/ui/TurnIndicator.svelte';
+    import ExpandingPanel from '$lib/components/ui/ExpandingPanel.svelte';
+    import NumericSliderRule from '$lib/components/ui/NumericSliderRule.svelte';
 
     export let m = 3;
     export let n = 3;

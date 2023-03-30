@@ -1,7 +1,7 @@
 <script>
-    import TicTacToeGame from '$lib/components/TicTacToeGame.svelte'
-    import GameSelector from "$lib/components/GameSelector.svelte";
-    import GameArea from "$lib/components/GameArea.svelte";
+    import TicTacToeGame from '$lib/components/games/tictactoe/TicTacToeGame.svelte'
+    import GameSelector from "$lib/components/ui/GameSelector.svelte";
+    import GameArea from "$lib/components/ui/GameArea.svelte";
 
     const AVAILABLE_GAMES = [
         { component: TicTacToeGame, displayName: 'Tic-Tac-Toe' }
