@@ -5,9 +5,9 @@
     import ExpandingPanel from '$lib/components/ui/ExpandingPanel.svelte';
     import NumericSliderRule from '$lib/components/ui/NumericSliderRule.svelte';
 
-    export let m = 3;
-    export let n = 3;
-    export let k = 3;
+    let m = 3;
+    let n = 3;
+    let k = 3;
 
     let players = [
         {
